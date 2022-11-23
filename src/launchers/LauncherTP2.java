@@ -13,10 +13,10 @@ public class LauncherTP2 {
 	public static void main(String [] args){
 		Agent a = new Animal(Sexe.Femelle,new Point(25,30));
 		
-		System.out.println(a.toString());
+		System.out.println(a);
 		//TODO
-		//tester la hiérarchie d'agent
-		
+		((Animal)a).seDeplacer();
+		System.out.println(a);
 	}
 
 }

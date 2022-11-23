@@ -2,6 +2,8 @@ package tp.model.agents;
 
 import java.awt.Point;
 
+import tp.model.comportements.Hebergeur;
+
 /**
  * Cette classe modélise un Animal dans la simulation
  * @author bruno
@@ -11,11 +13,11 @@ public class Animal extends Agent{
 	/** état de santé de l'animal */
 	private Etat etat= Etat.Normal;
 	private Sexe sexe;
+	public Hebergeur LieuHebergement = null;
 	
 	/* 
 	 * constructeurs 
 	 */
-	
 	public Animal(Sexe sexe, Point coord) {
 		id = Animal.getUniqueId();
 		this.sexe=sexe;
@@ -51,26 +53,18 @@ public class Animal extends Agent{
 	public String toString() {
         return super.toString() + this.sexe;
     }
-		
-	
+
 
 	/* 
 	 * comportements d'instance
 	 */
-	
-	
-
 	public void seDeplacer() {
-		//TODO utiliser Math.random() pour choisir une direction de déplacement
+		double dx = Math.round(Math.random()*2 -1);
+		double dy = Math.round(Math.random()*2 -1); 
+		this.coord.x += dx;
+		this.coord.y += dy;
 	}
-	
-	public void vieillir() {
-		this.age ++;
-	}
-	
-	public void rencontrer(Animal a) {
-		//TODO
-	}
+
 	
 	/* comportements de classe */ 
 	/**
